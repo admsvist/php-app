@@ -1,0 +1,21 @@
+{
+  "name": "admsvist/php-app",
+  "description": "Test application",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mikhail Kalinin",
+      "email": "admishut@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.2",
+    "ext-http": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  }
+}
