@@ -31,7 +31,7 @@ class ApplicationHelper
     private function setupOptions(): void
     {
         if (!file_exists($this->config)) {
-            throw new \Exception();
+            throw new \Exception("Неизвестный фаил $this->config'");
         }
 
         $options = parse_ini_file($this->config, true);
