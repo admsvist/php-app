@@ -2,11 +2,15 @@
 
 namespace App\Requests;
 
+use App\Commands\Command;
+
 abstract class Request
 {
     protected array $properties = [];
     protected array $feedback = [];
     protected string $path = '/';
+    protected int $status = 0;
+
     public function __construct()
     {
         $this->init();
@@ -24,7 +28,7 @@ abstract class Request
         $this->path = $path;
     }
 
-    public function getProperties(string $key): mixed
+    public function getProperty(string $key): mixed
     {
         if(isset($this->properties[$key])) {
             return $this->properties[$key];
@@ -33,7 +37,7 @@ abstract class Request
         return null;
     }
 
-    public function setProperties(string $key, mixed $val): void
+    public function setProperty(string $key, mixed $val): void
     {
         $this->properties[$key] = $val;
     }
@@ -56,5 +60,17 @@ abstract class Request
     public function clearFeedback(): void
     {
         $this->feedback = [];
+    }
+
+    abstract public function forward(string $path): void;
+
+    public function setCmdStatus(int $status): void
+    {
+        $this->status = $status;
+    }
+
+    public function getCmdStatus(): int
+    {
+        return $this->status;
     }
 }

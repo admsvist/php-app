@@ -1,8 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Controllers;
 
-use App\Commands\CommandResolver;
+use App\Registry;
 
 class Controller
 {
@@ -28,8 +28,10 @@ class Controller
     public function handleRequest(): void
     {
         $request = $this->reg->getRequest();
-        $resolver = new CommandResolver();
-        $cmd = $resolver->getCommand($request);
+        $controller = new AppController();
+        $cmd = $controller->getCommand($request);
         $cmd->execute($request);
+        $view = $controller->getView($request);
+        $view->render($request);
     }
 }

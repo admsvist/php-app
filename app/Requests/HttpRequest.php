@@ -9,4 +9,10 @@ class HttpRequest extends Request
         $this->properties = $_REQUEST;
         $this->path = $_SERVER['PATH_INFO'] ?? '/';
     }
+
+    public function forward(string $path): void
+    {
+        header("Location: $path");
+        exit;
+    }
 }

@@ -16,4 +16,9 @@ class Conf
 
         return null;
     }
+
+    public function set(string $path, ComponentDescriptor $pathobj)
+    {
+        $this->properties[$path] = $pathobj;
+    }
 }

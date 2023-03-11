@@ -27,6 +27,11 @@ class Registry
         return self::$instance;
     }
 
+    public static function reset()
+    {
+        // TODO сброс состояния
+    }
+
     public function setRequest(Request $request): void
     {
         $this->request = $request;

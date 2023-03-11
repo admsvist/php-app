@@ -4,7 +4,7 @@ namespace App\Commands;
 
 use App\Requests\Request;
 
-class DefaultCommand extends Command
+class ListVenues extends Command
 {
     protected function doExecute(Request $request): int
     {

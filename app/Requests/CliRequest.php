@@ -2,6 +2,9 @@
 
 namespace App\Requests;
 
+use App\Controllers\Controller;
+use App\Registry;
+
 class CliRequest extends Request
 {
     public function init(): void
@@ -13,10 +16,19 @@ class CliRequest extends Request
             } else {
                 if (strpos($arg, '=')) {
                     list($key, $val) = explode('=', $arg);
-                    $this->setProperties($key, $val);
+                    $this->setProperty($key, $val);
                 }
             }
         }
         $this->path = empty($this->path) ? '/' : $this->path;
+    }
+
+    public function forward(string $path): void
+    {
+        // Добавляет новый путь в конец аргументов,
+        // Где преимущество получает последний аргумент
+        $_SERVER['argv'][] = "path:$path";
+        Registry::reset();
+        Controller::run();
     }
 }

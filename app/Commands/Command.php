@@ -6,14 +6,20 @@ use App\Requests\Request;
 
 abstract class Command
 {
+    public const CMD_DEFAULT = 0;
+    public const CMD_OK = 1;
+    public const CMD_ERROR = 2;
+    public const CMD_INSUFFICIENT_DATA = 3;
+
     final function __construct()
     {
     }
 
     public function execute(Request $request): void
     {
-        $this->doExecute($request);
+        $status = $this->doExecute($request);
+        $request->setCmdStatus($status);
     }
 
-    abstract protected function doExecute(Request $request): void;
+    abstract protected function doExecute(Request $request): int;
 }
