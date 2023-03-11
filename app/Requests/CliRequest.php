@@ -2,7 +2,6 @@
 
 namespace App\Requests;
 
-use App\Controllers\Controller;
 use App\Registry;
 
 class CliRequest extends Request
@@ -29,6 +28,5 @@ class CliRequest extends Request
         // Где преимущество получает последний аргумент
         $_SERVER['argv'][] = "path:$path";
         Registry::reset();
-        Controller::run();
     }
 }
