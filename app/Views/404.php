@@ -1,18 +1,14 @@
-<?php
-
-echo "
-<html lang=\"en\">
+<html lang="en">
 <head>
-<title>App!</title>
+    <title>App!</title>
 </head>
 <body>
 <table>
-<tr>
-<td>
-404
-</td>
-</tr>
+    <tr>
+        <td>
+            404
+        </td>
+    </tr>
 </table>
 </body>
 </html>
-";
