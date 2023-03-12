@@ -1,18 +1,14 @@
-<?php
-
-echo "
-<html lang=\"en\">
+<html lang="en">
 <head>
-<title>App!</title>
+    <title>App!</title>
 </head>
 <body>
 <table>
-<tr>
-<td>
-addspace page
-</td>
-</tr>
+    <tr>
+        <td>
+            addspace page
+        </td>
+    </tr>
 </table>
 </body>
 </html>
-";
